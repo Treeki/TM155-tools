@@ -1,0 +1,1089 @@
+[
+    {
+        "name": "IAR0",
+        "comment": "Indirect Addressing Register 0"
+    },
+    {
+        "name": "MP0",
+        "comment": "Memory Pointer 0"
+    },
+    {
+        "name": "IAR1",
+        "comment": "Indirect Addressing Register 1"
+    },
+    {
+        "name": "MP1",
+        "comment": "Memory Pointer 1"
+    },
+    {
+        "name": "BP",
+        "comment": "Bank Pointer",
+        "bits": [
+            "DMBP0",
+            "DMBP1",
+            "DMBP2",
+            null,
+            null,
+            "PMBP0",
+            null,
+            null
+        ]
+    },
+    {
+        "name": "ACC",
+        "comment": "Accumulator"
+    },
+    {
+        "name": "PCL",
+        "comment": "Program Counter Low"
+    },
+    {
+        "name": "TBLP",
+        "comment": "Table Lookup Low Pointer"
+    },
+    {
+        "name": "TBLH",
+        "comment": "Table Lookup High Result"
+    },
+    {
+        "name": "TBHP",
+        "comment": "Table Lookup High Pointer"
+    },
+    {
+        "name": "STATUS",
+        "comment": "Status Register",
+        "bits": [
+            "C",
+            "AC",
+            "Z",
+            "OV",
+            "PDF",
+            "TO",
+            null,
+            null
+        ]
+    },
+    {
+        "name": "SMOD",
+        "comment": "SMOD Register",
+        "bits": [
+            "HLCLK",
+            "IDLEN",
+            "HTO",
+            "LTO",
+            "FSTEN",
+            "CKS0",
+            "CKS1",
+            "CKS2"
+        ]
+    },
+    {
+        "name": "LVDC",
+        "comment": "Low Voltage Detector Control",
+        "bits": [
+            "VLVD0",
+            "VLVD1",
+            "VLVD2",
+            null,
+            "LVDEN",
+            "LVDO",
+            null,
+            null
+        ]
+    },
+    {
+        "name": "INTEG",
+        "comment": "Interrupt Edge Control",
+        "bits": [
+            "INT0S0",
+            "INT0S1",
+            "INT1S0",
+            "INT1S1",
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "name": "WDTC",
+        "comment": "Watchdog Timer Control",
+        "bits": [
+            "WS0",
+            "WS1",
+            "WS2",
+            "WE0",
+            "WE1",
+            "WE2",
+            "WE3",
+            "WE4"
+        ]
+    },
+    null,
+    {
+        "name": "INTC0",
+        "comment": "Interrupt Control 0",
+        "bits": [
+            "EMI",
+            "INT0E",
+            "INT1E",
+            "USBE",
+            "INT0F",
+            "INT1F",
+            "USBF",
+            null
+        ]
+    },
+    {
+        "name": "INTC1",
+        "comment": "Interrupt Control 1",
+        "bits": [
+            "LVE",
+            null,
+            "MF0E",
+            "MF1E",
+            "LVF",
+            null,
+            "MF0F",
+            "MF1F"
+        ]
+    },
+    {
+        "name": "INTC2",
+        "comment": "Interrupt Control 2",
+        "bits": [
+            "MF2E",
+            "MF3E",
+            "SIME",
+            "SPIAE",
+            "MF2F",
+            "MF3F",
+            "SIMF",
+            "SPIAF"
+        ]
+    },
+    null,
+    {
+        "name": "MFI0",
+        "comment": "Multi-Function Interrupt Control 0",
+        "bits": [
+            "T0PE",
+            "T0AE",
+            "T1PE",
+            "T1AE",
+            "T0PF",
+            "T0AF",
+            "T1PF",
+            "T1AF"
+        ]
+    },
+    {
+        "name": "MFI1",
+        "comment": "Multi-Function Interrupt Control 1",
+        "bits": [
+            "T2PE",
+            "T2AE",
+            "T3PE",
+            "T3AE",
+            "T2PF",
+            "T2AF",
+            "T3PF",
+            "T3AF"
+        ]
+    },
+    null,
+    null,
+    {
+        "name": "PAWU",
+        "comment": "I/O Port A Wake-Up Control",
+        "bits": [
+            "PAWU0",
+            "PAWU1",
+            "PAWU2",
+            "PAWU3",
+            "PAWU4",
+            "PAWU5",
+            "PAWU6",
+            "PAWU7"
+        ]
+    },
+    {
+        "name": "PAPU",
+        "comment": "I/O Port A Pull-High Control",
+        "bits": [
+            "PAPU0",
+            "PAPU1",
+            "PAPU2",
+            "PAPU3",
+            "PAPU4",
+            "PAPU5",
+            "PAPU6",
+            "PAPU7"
+        ]
+    },
+    {
+        "name": "PA",
+        "comment": "I/O Port A",
+        "bits": [
+            "PA0",
+            "PA1",
+            "PA2",
+            "PA3",
+            "PA4",
+            "PA5",
+            "PA6",
+            "PA7"
+        ]
+    },
+    {
+        "name": "PAC",
+        "comment": "I/O Port A Control",
+        "bits": [
+            "PAC0",
+            "PAC1",
+            "PAC2",
+            "PAC3",
+            "PAC4",
+            "PAC5",
+            "PAC6",
+            "PAC7"
+        ]
+    },
+    {
+        "name": "PADIR",
+        "comment": "I/O Port A Wake-Up Polarity Control Register"
+    },
+    null,
+    null,
+    {
+        "name": "PXWU",
+        "comment": "I/O Port B-E Wake-Up Control",
+        "bits": [
+            "PBLWU",
+            "PBHWU",
+            "PCLWU",
+            "PCHWU",
+            "PDLWU",
+            "PDHWU",
+            "PELWU",
+            "PEHWU"
+        ]
+    },
+    {
+        "name": "PXPU",
+        "comment": "I/O Port B-E Pull-High Control",
+        "bits": [
+            "PBLPU",
+            "PBHPU",
+            "PCLPU",
+            "PCHPU",
+            "PDLPU",
+            "PDHPU",
+            "PELPU",
+            "PEHPU"
+        ]
+    },
+    null,
+    {
+        "name": "PB",
+        "comment": "I/O Port B",
+        "bits": [
+            "PB0",
+            "PB1",
+            "PB2",
+            "PB3",
+            "PB4",
+            "PB5",
+            "PB6",
+            "PB7"
+        ]
+    },
+    {
+        "name": "PBC",
+        "comment": "I/O Port B Control",
+        "bits": [
+            "PBC0",
+            "PBC1",
+            "PBC2",
+            "PBC3",
+            "PBC4",
+            "PBC5",
+            "PBC6",
+            "PBC7"
+        ]
+    },
+    {
+        "name": "PC",
+        "comment": "I/O Port C",
+        "bits": [
+            "PC0",
+            "PC1",
+            "PC2",
+            "PC3",
+            "PC4",
+            "PC5",
+            "PC6",
+            "PC7"
+        ]
+    },
+    {
+        "name": "PCC",
+        "comment": "I/O Port C Control",
+        "bits": [
+            "PCC0",
+            "PCC1",
+            "PCC2",
+            "PCC3",
+            "PCC4",
+            "PCC5",
+            "PCC6",
+            "PCC7"
+        ]
+    },
+    {
+        "name": "PD",
+        "comment": "I/O Port D",
+        "bits": [
+            "PD0",
+            "PD1",
+            "PD2",
+            "PD3",
+            "PD4",
+            "PD5",
+            "PD6",
+            "PD7"
+        ]
+    },
+    {
+        "name": "PDC",
+        "comment": "I/O Port D Control",
+        "bits": [
+            "PDC0",
+            "PDC1",
+            "PDC2",
+            "PDC3",
+            "PDC4",
+            "PDC5",
+            "PDC6",
+            "PDC7"
+        ]
+    },
+    {
+        "name": "PE",
+        "comment": "I/O Port E",
+        "bits": [
+            "PE0",
+            "PE1",
+            "PE2",
+            "PE3",
+            "PE4",
+            "PE5",
+            null,
+            null
+        ]
+    },
+    {
+        "name": "PEC",
+        "comment": "I/O Port E Control",
+        "bits": [
+            "PEC0",
+            "PEC1",
+            "PEC2",
+            "PEC3",
+            "PEC4",
+            "PEC5",
+            null,
+            null
+        ]
+    },
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    {
+        "name": "I2CTOC",
+        "comment": "I2C Timeout Control",
+        "bits": [
+            "I2CTOS0",
+            "I2CTOS1",
+            "I2CTOS2",
+            "I2CTOS3",
+            "I2CTOS4",
+            "I2CTOS5",
+            "I2CTOF",
+            "I2CTOEN"
+        ]
+    },
+    {
+        "name": "SIMC0",
+        "comment": "SIM Control 0",
+        "bits": [
+            null,
+            "SIMEN",
+            "PCKP0",
+            "PCKP1",
+            "PCKEN",
+            "SIM0",
+            "SIM1",
+            "SIM2"
+        ]
+    },
+    {
+        "name": "SIMC1",
+        "comment": "SIM Control 1",
+        "bits": [
+            "RXAK",
+            "IAMWU",
+            "SRW",
+            "TXAK",
+            "HTX",
+            "HBB",
+            "HAAS",
+            "HCF"
+        ]
+    },
+    {
+        "name": "SIMD",
+        "comment": "SIM Data"
+    },
+    {
+        "name": "SIMC2",
+        "comment": "SIM Control 2",
+        "bits": [
+            "TRF",
+            "WCOL",
+            "CSEN",
+            "MLS",
+            "CKEG",
+            "CKPOLB",
+            "IICA5",
+            "IICA6"
+        ]
+    },
+    {
+        "name": "SPIAC0",
+        "comment": "SPIA Control 0",
+        "bits": [
+            null,
+            "SPIAEN",
+            null,
+            null,
+            null,
+            "SASPI0",
+            "SASPI1",
+            "SASPI2"
+        ]
+    },
+    {
+        "name": "SPIAC1",
+        "comment": "SPIA Control 1",
+        "bits": [
+            "SATRF",
+            "SAWCOL",
+            "SACSEN",
+            "SAMLS",
+            "SACKEG",
+            "SACKPOL",
+            null,
+            null
+        ]
+    },
+    {
+        "name": "SPIAD",
+        "comment": "SPIA Data"
+    },
+    {
+        "name": "SBSC",
+        "comment": "SBSC Register",
+        "bits": [
+            "SA_WCOL",
+            null,
+            null,
+            null,
+            "I2CDB0",
+            "I2CDB1",
+            null,
+            "SIM_WCOL"
+        ]
+    },
+    {
+        "name": "FRCR",
+        "comment": "More Flash Control Register",
+        "banks": [
+            1
+        ]
+    },
+    {
+        "name": "FCR",
+        "comment": "Flash Control Register",
+        "banks": [
+            1
+        ]
+    },
+    {
+        "name": "FARH",
+        "comment": "Flash Address Register High",
+        "banks": [
+            1
+        ]
+    },
+    {
+        "name": "FD0H",
+        "comment": "Flash Data 0 High",
+        "banks": [
+            1
+        ]
+    },
+    {
+        "name": "FD1H",
+        "comment": "Flash Data 1 High",
+        "banks": [
+            1
+        ]
+    },
+    {
+        "name": "FD2H",
+        "comment": "Flash Data 2 High",
+        "banks": [
+            1
+        ]
+    },
+    {
+        "name": "FD3H",
+        "comment": "Flash Data 3 High",
+        "banks": [
+            1
+        ]
+    },
+    {
+        "name": "TMPC0",
+        "comment": "TM I/O Pin Control Register 0",
+        "bits": [
+            "T0CP0",
+            "T0CP1",
+            null,
+            null,
+            "T1CP0",
+            "T1CP1",
+            null,
+            null
+        ]
+    },
+    {
+        "name": "TMPC1",
+        "comment": "TM I/O Pin Control Register 1",
+        "bits": [
+            "T2CP0",
+            "T2CP1",
+            null,
+            null,
+            "T3CP0",
+            "T3CP1",
+            null,
+            null
+        ]
+    },
+    {
+        "name": "TM0C0",
+        "comment": "TM0 Control 0",
+        "bits": [
+            null,
+            null,
+            null,
+            "T0ON",
+            "T0CK0",
+            "T0CK1",
+            "T0CK2",
+            "T0PAU"
+        ]
+    },
+    {
+        "name": "TM0C1",
+        "comment": "TM0 Control 1",
+        "bits": [
+            "T0CLR",
+            "T0PX",
+            "T0POL",
+            "T0OC",
+            "T0IO0",
+            "T0IO1",
+            "T0M0",
+            "T0M1"
+        ]
+    },
+    null,
+    {
+        "name": "TM0DL",
+        "comment": "TM0 Counter Low"
+    },
+    {
+        "name": "TM0DH",
+        "comment": "TM0 Counter High"
+    },
+    {
+        "name": "TM0AL",
+        "comment": "TM0 CCRA Low"
+    },
+    {
+        "name": "TM0AH",
+        "comment": "TM0 CCRA High"
+    },
+    {
+        "name": "TM0RP",
+        "comment": "TM0 CCRP"
+    },
+    null,
+    {
+        "name": "TM1C0",
+        "comment": "TM1 Control 0",
+        "bits": [
+            "T1RP0",
+            "T1RP1",
+            "T1RP2",
+            "T1ON",
+            "T1CK0",
+            "T1CK1",
+            "T1CK2",
+            "T1PAU"
+        ]
+    },
+    {
+        "name": "TM1C1",
+        "comment": "TM1 Control 1",
+        "bits": [
+            "T1CCLR",
+            "T1DPX",
+            "T1POL",
+            "T1OC",
+            "T1IO0",
+            "T1IO1",
+            "T1M0",
+            "T1M1"
+        ]
+    },
+    {
+        "name": "TM1DL",
+        "comment": "TM1 Counter Low"
+    },
+    {
+        "name": "TM1DH",
+        "comment": "TM1 Counter High"
+    },
+    {
+        "name": "TM1AL",
+        "comment": "TM1 CCRA Low"
+    },
+    {
+        "name": "TM1AH",
+        "comment": "TM1 CCRA High"
+    },
+    {
+        "name": "TM2C0",
+        "comment": "TM2 Control 0",
+        "bits": [
+            "T2RP0",
+            "T2RP1",
+            "T2RP2",
+            "T2ON",
+            "T2CK0",
+            "T2CK1",
+            "T2CK2",
+            "T2PAU"
+        ]
+    },
+    {
+        "name": "TM2C1",
+        "comment": "TM2 Control 1",
+        "bits": [
+            "T2CLR",
+            "T2PX",
+            "T2POL",
+            "T2OC",
+            "T2IO0",
+            "T2IO1",
+            "T2M0",
+            "T2M1"
+        ]
+    },
+    {
+        "name": "TM2DL",
+        "comment": "TM2 Counter Low"
+    },
+    {
+        "name": "TM2DH",
+        "comment": "TM2 Counter High"
+    },
+    {
+        "name": "TM2AL",
+        "comment": "TM2 CCRA Low"
+    },
+    {
+        "name": "TM2AH",
+        "comment": "TM2 CCRA High"
+    },
+    {
+        "name": "TM3C0",
+        "comment": "TM3 Control 0",
+        "bits": [
+            "T3RP0",
+            "T3RP1",
+            "T3RP2",
+            "T3ON",
+            "T3CK0",
+            "T3CK1",
+            "T3CK2",
+            "T3PAU"
+        ]
+    },
+    {
+        "name": "TM3C1",
+        "comment": "TM3 Control 1",
+        "bits": [
+            "T3CLR",
+            "T3PX",
+            "T3POL",
+            "T3OC",
+            "T3IO0",
+            "T3IO1",
+            "T3M0",
+            "T3M1"
+        ]
+    },
+    {
+        "name": "TM3DL",
+        "comment": "TM3 Counter Low"
+    },
+    {
+        "name": "TM3DH",
+        "comment": "TM3 Counter High"
+    },
+    {
+        "name": "TM3AL",
+        "comment": "TM3 CCRA Low"
+    },
+    {
+        "name": "TM3AH",
+        "comment": "TM3 CCRA High"
+    },
+    {
+        "name": "USB_STAT",
+        "comment": "USB Status",
+        "bits": [
+            "ESD",
+            "PU",
+            "SE0",
+            "SE1",
+            "PS2_DAI",
+            "PS2_CKI",
+            "PS2_DAO",
+            "PS2_CKO"
+        ]
+    },
+    {
+        "name": "UINT",
+        "comment": "USB Endpoint Interrupt Control",
+        "bits": [
+            "EP0EN",
+            "EP1EN",
+            "EP2EN",
+            "EP3EN",
+            "EP4EN",
+            "EP5EN",
+            "EP6EN",
+            "EP7EN"
+        ]
+    },
+    {
+        "name": "USC",
+        "comment": "USB Control",
+        "bits": [
+            "SUSP",
+            "RMWK",
+            "URST",
+            "RESUME",
+            "SELUSB",
+            "PLL",
+            "SELPS2",
+            "URD"
+        ]
+    },
+    {
+        "name": "USR",
+        "comment": "USB Endpoint Accessed Detection",
+        "bits": [
+            "EP0F",
+            "EP1F",
+            "EP2F",
+            "EP3F",
+            "EP4F",
+            "EP5F",
+            "EP6F",
+            "EP7F"
+        ]
+    },
+    {
+        "name": "UCC",
+        "comment": "USB Clock Control",
+        "bits": [
+            "EPS0",
+            "EPS1",
+            "EPS2",
+            "USBCKEN",
+            "SUSP2",
+            "FSYS16MHZ",
+            "SYSCLK",
+            "RCTRL"
+        ]
+    },
+    {
+        "name": "AWR",
+        "comment": "USB Address and Wake-Up Control",
+        "bits": [
+            "WKEN",
+            "AD0",
+            "AD1",
+            "AD2",
+            "AD3",
+            "AD4",
+            "AD5",
+            "AD6"
+        ]
+    },
+    {
+        "name": "STLI",
+        "comment": "FIFO In Stall Endpoints",
+        "bits": [
+            "STLI0",
+            "STLI1",
+            "STLI2",
+            "STLI3",
+            "STLI4",
+            "STLI5",
+            "STLI6",
+            "STLI7"
+        ]
+    },
+    {
+        "name": "STLO",
+        "comment": "FIFO Out Stall Endpoints",
+        "bits": [
+            "STLO0",
+            "STLO1",
+            "STLO2",
+            "STLO3",
+            "STLO4",
+            "STLO5",
+            "STLO6",
+            "STLO7"
+        ]
+    },
+    {
+        "name": "SIES",
+        "comment": "SIES Register",
+        "bits": [
+            "ASET",
+            "ERR",
+            "OUT",
+            "IN",
+            "NAK",
+            null,
+            "CRCF",
+            "NMI"
+        ]
+    },
+    {
+        "name": "MISC",
+        "comment": "Misc Register",
+        "bits": [
+            "REQUEST",
+            "TX",
+            "CLEAR",
+            "E3IDF",
+            "E4ODF",
+            "SETCMD",
+            "READY",
+            "LEN0"
+        ]
+    },
+    {
+        "name": "UFIEN",
+        "comment": "USB Input FIFO Control",
+        "bits": [
+            "FIFO_DEF",
+            "SETI1",
+            "SETI2",
+            "SETI3",
+            "SETI4",
+            "SETI5",
+            "SETI6",
+            "SETI7"
+        ]
+    },
+    {
+        "name": "UFOEN",
+        "comment": "USB Output FIFO Control",
+        "bits": [
+            "DATATG",
+            "SETO1",
+            "SETO2",
+            "SETO3",
+            "SETO4",
+            "SETO5",
+            "SETO6",
+            "SETO7"
+        ]
+    },
+    {
+        "name": "UFC0",
+        "comment": "USB FIFO Control 0",
+        "bits": [
+            null,
+            null,
+            "E1FS0",
+            "E1FS1",
+            "E2FS0",
+            "E2FS1",
+            "E3FS0",
+            "E3FS1"
+        ]
+    },
+    {
+        "name": "UFC1",
+        "comment": "USB FIFO Control 1",
+        "bits": [
+            "E4FS0",
+            "E4FS1",
+            "E5FS0",
+            "E5FS1",
+            "E6FS0",
+            "E6FS1",
+            "E7FS0",
+            "E7FS1"
+        ]
+    },
+    {
+        "name": "FIFO0",
+        "comment": "FIFO 0"
+    },
+    {
+        "name": "FIFO1",
+        "comment": "FIFO 1"
+    },
+    {
+        "name": "FIFO2",
+        "comment": "FIFO 2"
+    },
+    {
+        "name": "FIFO3",
+        "comment": "FIFO 3"
+    },
+    {
+        "name": "FIFO4",
+        "comment": "FIFO 4"
+    },
+    {
+        "name": "FIFO5",
+        "comment": "FIFO 5"
+    },
+    {
+        "name": "FIFO6",
+        "comment": "FIFO 6"
+    },
+    {
+        "name": "FIFO7",
+        "comment": "FIFO 7"
+    },
+    {
+        "name": "CTRL",
+        "comment": "CTRL Register",
+        "bits": [
+            "WRF",
+            "LRF",
+            "LVRF",
+            null,
+            null,
+            null,
+            null,
+            "FSYSON"
+        ]
+    },
+    {
+        "name": "LVRC",
+        "comment": "Low Voltage Reset Control",
+        "bits": [
+            "LVS0",
+            "LVS1",
+            "LVS2",
+            "LVS3",
+            "LVS4",
+            "LVS5",
+            "LVS6",
+            "LVS7"
+        ]
+    },
+    {
+        "name": "PDPS",
+        "comment": "PD Power Supply Control",
+        "bits": [
+            "PD4S0",
+            "PD4S1",
+            "PD5S0",
+            "PD5S1",
+            "PD6S0",
+            "PD6S1",
+            "PD7S0",
+            "PD7S1"
+        ]
+    },
+    {
+        "name": "PAPS0",
+        "comment": "PA Power Supply Control 0",
+        "bits": [
+            "PA0S0",
+            "PA0S1",
+            "PA1S0",
+            "PA1S1",
+            "PA2S0",
+            "PA2S1",
+            "PA3S0",
+            "PA3S1"
+        ]
+    },
+    {
+        "name": "PAPS1",
+        "comment": "PA Power Supply Control 1",
+        "bits": [
+            "PA4S0",
+            "PA4S1",
+            "PA5S0",
+            "PA5S1",
+            "PA6S0",
+            "PA6S1",
+            "PA7S0",
+            "PA7S1"
+        ]
+    },
+    {
+        "name": "SYSC",
+        "comment": "USB SYSC Register",
+        "bits": [
+            null,
+            null,
+            "HFV",
+            null,
+            null,
+            "RUBUS",
+            "USBDIS",
+            "CLK_ADJ"
+        ]
+    }
+]

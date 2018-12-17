@@ -5,6 +5,10 @@ This repository accompanies my series of blog posts about reverse-engineering
 this mouse's drivers and firmware. Find it here:
 https://wuffs.org/blog/mouse-adventures
 
+All these tools are supplied under the MIT License. If you end up doing
+something cool (or uncool) with this stuff, then let me know - I'd love to
+know about it! There's bound to be other devices using these chips out there...
+
 # Included Tools
 
 ## mtp-extractor
@@ -41,6 +45,19 @@ to place a couple of files from the HT-IDE3000 install package into a
 Then, invoke it as follows:
 
     $ python ht68-disasm.py HT68FB560 program.bin > program.asm
+
+## ht68fb560.py for IDA
+
+This is an IDAPython processor module that lets you disassemble and analyse
+this mouse's firmware with... relative ease, I should probably say.
+
+Place the `ht68fb560.py` and `ht68fb560.json` files from the `ida-module`
+directory into the following location:
+
+- Windows: `%APPDATA%/Hex-Rays/IDA Pro/procs`
+- Linux, Mac: `~/.idapro/procs`
+
+Developed for and tested with IDA 7.0.
 
 # Proprietary Downloads
 
