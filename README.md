@@ -20,7 +20,7 @@ and my first time using Cocoa, so the code's a bit junk, but it's a start!
 This depends on the embeddable editing widgets provided by
 [Hex Fiend](https://github.com/ridiculousfish/HexFiend/)'s framework.
 
-## Firmware Patches
+## Firmware Patches
 
 I've put together some patches to the TM155 firmware to fix bugs.
 See the [patches.md](patches.md) file for details on these.
