@@ -11,6 +11,20 @@ know about it! There's bound to be other devices using these chips out there...
 
 # Included Tools
 
+## tm155-mac
+
+A native application to control the TM155 from macOS, written using Swift and
+Cocoa. Currently heavily under construction. This is my first time using Swift
+and my first time using Cocoa, so the code's a bit junk, but it's a start!
+
+This depends on the embeddable editing widgets provided by
+[Hex Fiend](https://github.com/ridiculousfish/HexFiend/)'s framework.
+
+## Firmware Patches
+
+I've put together some patches to the TM155 firmware to fix bugs.
+See the [patches.md](patches.md) file for details on these.
+
 ## mtp-extractor
 
 This tool is written in C++ and uses the library provided as part of Holtek

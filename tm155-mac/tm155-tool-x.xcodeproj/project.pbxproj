@@ -1,0 +1,387 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5EC5274E21CF6631003F9740 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC5274D21CF6631003F9740 /* AppDelegate.swift */; };
+		5EC5275021CF6633003F9740 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EC5274F21CF6633003F9740 /* Assets.xcassets */; };
+		5EC5275321CF6633003F9740 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EC5275121CF6633003F9740 /* MainMenu.xib */; };
+		5EC5275D21CF6641003F9740 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EC5275C21CF6641003F9740 /* IOKit.framework */; };
+		5EC5275F21CF666A003F9740 /* HIDManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC5275E21CF666A003F9740 /* HIDManager.swift */; };
+		5EC5276121CF74D6003F9740 /* HIDDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC5276021CF74D6003F9740 /* HIDDevice.swift */; };
+		5EC5276321CF8169003F9740 /* TM155ControlDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC5276221CF8169003F9740 /* TM155ControlDevice.swift */; };
+		5EC5276721CFDEAE003F9740 /* HexFiend.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EC5276621CFDEAE003F9740 /* HexFiend.framework */; };
+		5EC5276B21CFECBA003F9740 /* HexFiend.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EC5276621CFDEAE003F9740 /* HexFiend.framework */; };
+		5EC5276C21CFECBA003F9740 /* HexFiend.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5EC5276621CFDEAE003F9740 /* HexFiend.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5EC5276F21D28E8C003F9740 /* ButtonTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC5276E21D28E8C003F9740 /* ButtonTableCellView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5EC5276D21CFECBB003F9740 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				5EC5276C21CFECBA003F9740 /* HexFiend.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		5EC5274A21CF6631003F9740 /* tm155-tool-x.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tm155-tool-x.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5EC5274D21CF6631003F9740 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5EC5274F21CF6633003F9740 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5EC5275221CF6633003F9740 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		5EC5275421CF6633003F9740 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5EC5275521CF6633003F9740 /* tm155_tool_x.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = tm155_tool_x.entitlements; sourceTree = "<group>"; };
+		5EC5275C21CF6641003F9740 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		5EC5275E21CF666A003F9740 /* HIDManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HIDManager.swift; sourceTree = "<group>"; };
+		5EC5276021CF74D6003F9740 /* HIDDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HIDDevice.swift; sourceTree = "<group>"; };
+		5EC5276221CF8169003F9740 /* TM155ControlDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TM155ControlDevice.swift; sourceTree = "<group>"; };
+		5EC5276621CFDEAE003F9740 /* HexFiend.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HexFiend.framework; path = "../../../Library/Developer/Xcode/DerivedData/HexFiend_2-fmncyynketdhiddteswqjacylteg/Build/Products/Debug/HexFiend.framework"; sourceTree = "<group>"; };
+		5EC5276821CFE184003F9740 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		5EC5276E21D28E8C003F9740 /* ButtonTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTableCellView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5EC5274721CF6631003F9740 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5EC5275D21CF6641003F9740 /* IOKit.framework in Frameworks */,
+				5EC5276B21CFECBA003F9740 /* HexFiend.framework in Frameworks */,
+				5EC5276721CFDEAE003F9740 /* HexFiend.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5EC5274121CF6631003F9740 = {
+			isa = PBXGroup;
+			children = (
+				5EC5274C21CF6631003F9740 /* tm155-tool-x */,
+				5EC5274B21CF6631003F9740 /* Products */,
+				5EC5275B21CF6641003F9740 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		5EC5274B21CF6631003F9740 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5EC5274A21CF6631003F9740 /* tm155-tool-x.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5EC5274C21CF6631003F9740 /* tm155-tool-x */ = {
+			isa = PBXGroup;
+			children = (
+				5EC5274D21CF6631003F9740 /* AppDelegate.swift */,
+				5EC5275E21CF666A003F9740 /* HIDManager.swift */,
+				5EC5274F21CF6633003F9740 /* Assets.xcassets */,
+				5EC5275121CF6633003F9740 /* MainMenu.xib */,
+				5EC5276E21D28E8C003F9740 /* ButtonTableCellView.swift */,
+				5EC5275421CF6633003F9740 /* Info.plist */,
+				5EC5275521CF6633003F9740 /* tm155_tool_x.entitlements */,
+				5EC5276021CF74D6003F9740 /* HIDDevice.swift */,
+				5EC5276221CF8169003F9740 /* TM155ControlDevice.swift */,
+				5EC5276821CFE184003F9740 /* Bridging-Header.h */,
+			);
+			path = "tm155-tool-x";
+			sourceTree = "<group>";
+		};
+		5EC5275B21CF6641003F9740 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5EC5276621CFDEAE003F9740 /* HexFiend.framework */,
+				5EC5275C21CF6641003F9740 /* IOKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5EC5274921CF6631003F9740 /* tm155-tool-x */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5EC5275821CF6633003F9740 /* Build configuration list for PBXNativeTarget "tm155-tool-x" */;
+			buildPhases = (
+				5EC5274621CF6631003F9740 /* Sources */,
+				5EC5274721CF6631003F9740 /* Frameworks */,
+				5EC5274821CF6631003F9740 /* Resources */,
+				5EC5276D21CFECBB003F9740 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "tm155-tool-x";
+			productName = "tm155-tool-x";
+			productReference = 5EC5274A21CF6631003F9740 /* tm155-tool-x.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5EC5274221CF6631003F9740 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1000;
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = "Ash Wolf";
+				TargetAttributes = {
+					5EC5274921CF6631003F9740 = {
+						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 5EC5274521CF6631003F9740 /* Build configuration list for PBXProject "tm155-tool-x" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5EC5274121CF6631003F9740;
+			productRefGroup = 5EC5274B21CF6631003F9740 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5EC5274921CF6631003F9740 /* tm155-tool-x */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5EC5274821CF6631003F9740 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5EC5275021CF6633003F9740 /* Assets.xcassets in Resources */,
+				5EC5275321CF6633003F9740 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5EC5274621CF6631003F9740 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5EC5276F21D28E8C003F9740 /* ButtonTableCellView.swift in Sources */,
+				5EC5276321CF8169003F9740 /* TM155ControlDevice.swift in Sources */,
+				5EC5274E21CF6631003F9740 /* AppDelegate.swift in Sources */,
+				5EC5275F21CF666A003F9740 /* HIDManager.swift in Sources */,
+				5EC5276121CF74D6003F9740 /* HIDDevice.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		5EC5275121CF6633003F9740 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5EC5275221CF6633003F9740 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5EC5275621CF6633003F9740 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5EC5275721CF6633003F9740 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		5EC5275921CF6633003F9740 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "/Users/ash/Library/Developer/Xcode/DerivedData/HexFiend_2-fmncyynketdhiddteswqjacylteg/Build/Products/Debug";
+				INFOPLIST_FILE = "tm155-tool-x/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.wuffs.tm155-tool-x";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "tm155-tool-x/Bridging-Header.h";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		5EC5275A21CF6633003F9740 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "/Users/ash/Library/Developer/Xcode/DerivedData/HexFiend_2-fmncyynketdhiddteswqjacylteg/Build/Products/Debug";
+				INFOPLIST_FILE = "tm155-tool-x/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.wuffs.tm155-tool-x";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "tm155-tool-x/Bridging-Header.h";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5EC5274521CF6631003F9740 /* Build configuration list for PBXProject "tm155-tool-x" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5EC5275621CF6633003F9740 /* Debug */,
+				5EC5275721CF6633003F9740 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5EC5275821CF6633003F9740 /* Build configuration list for PBXNativeTarget "tm155-tool-x" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5EC5275921CF6633003F9740 /* Debug */,
+				5EC5275A21CF6633003F9740 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5EC5274221CF6631003F9740 /* Project object */;
+}
