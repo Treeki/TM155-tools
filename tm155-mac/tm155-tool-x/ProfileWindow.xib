@@ -303,16 +303,28 @@
                         <buttonCell key="cell" type="push" title="Save &amp; Apply" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="y5L-y2-EWe">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="saveAction:" target="-2" id="fhu-b1-sDg"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TEK-Fn-AhE">
+                        <rect key="frame" x="404" y="8" width="75" height="32"/>
+                        <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="FcW-OV-LGb">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
                             <string key="keyEquivalent" base64-UTF8="YES">
 Gw
 </string>
                         </buttonCell>
                         <connections>
-                            <action selector="saveEvent:" target="-2" id="z4I-Rw-6zf"/>
+                            <action selector="dismissController:" target="-2" id="m3H-yg-RZ6"/>
                         </connections>
                     </button>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="rt4-Vp-mLf" firstAttribute="leading" secondItem="TEK-Fn-AhE" secondAttribute="trailing" constant="12" symbolic="YES" id="7Bs-pU-2o5"/>
+                    <constraint firstItem="TEK-Fn-AhE" firstAttribute="firstBaseline" secondItem="rt4-Vp-mLf" secondAttribute="firstBaseline" id="K4c-B2-Kjk"/>
                     <constraint firstAttribute="trailing" secondItem="fTJ-NM-4we" secondAttribute="trailing" constant="20" symbolic="YES" id="ZDc-iB-8ze"/>
                     <constraint firstItem="fTJ-NM-4we" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" constant="12" symbolic="YES" id="cV2-4E-DGF"/>
                     <constraint firstItem="fTJ-NM-4we" firstAttribute="bottom" secondItem="rt4-Vp-mLf" secondAttribute="top" constant="-10" id="eAY-6z-Kmr"/>
@@ -353,7 +365,7 @@ Gw
                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                 <tableColumns>
-                                    <tableColumn width="232" minWidth="40" maxWidth="1000" id="y50-Fe-Ewd">
+                                    <tableColumn identifier="ActionCell" width="232" minWidth="40" maxWidth="1000" id="y50-Fe-Ewd">
                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
                                             <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -366,7 +378,7 @@ Gw
                                         </textFieldCell>
                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         <prototypeCellViews>
-                                            <tableCellView id="xfJ-Ml-jGU">
+                                            <tableCellView identifier="ActionCell" id="xfJ-Ml-jGU">
                                                 <rect key="frame" x="1" y="1" width="232" height="17"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
@@ -395,6 +407,7 @@ Gw
                                     </tableColumn>
                                 </tableColumns>
                                 <connections>
+                                    <action trigger="doubleAction" selector="outlineDoubleAction:" target="-2" id="EKm-MM-4Vj"/>
                                     <outlet property="dataSource" destination="-2" id="mFp-Js-69I"/>
                                     <outlet property="delegate" destination="-2" id="2PW-76-CE2"/>
                                 </connections>
@@ -416,6 +429,9 @@ Gw
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="cellTitle"/>
                     </buttonCell>
+                    <connections>
+                        <action selector="performClose:" target="eAx-89-anc" id="Npn-bX-EW1"/>
+                    </connections>
                 </button>
             </subviews>
             <constraints>

@@ -28,7 +28,7 @@ extension NSColor {
 }
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate, HIDManagerDelegate, NSTableViewDelegate, NSTableViewDataSource {
+class AppDelegate: NSObject, NSApplicationDelegate, HIDManagerDelegate, ProfileWindowDelegate, NSTableViewDelegate, NSTableViewDataSource {
     func deviceConnected(_ device: IOHIDDevice) {
         let device = HIDDevice(device)
         if device.vendorId == 0x4D9 && device.productId == 0xA118 {
@@ -294,6 +294,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, HIDManagerDelegate, NSTableV
         if id >= 0 {
             if case .none = self.profileWindows[id] {
                 self.profileWindows[id] = ProfileWindow.init(windowNibName: "ProfileWindow")
+                self.profileWindows[id]?.delegate = self
             }
             
             let window = self.profileWindows[id]!
@@ -318,6 +319,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, HIDManagerDelegate, NSTableV
                 }
             }
         }
+    }
+    
+    func profileSaved(id: Int, config: [UInt8], buttons: [TM155Button?]) {
+        try! controlDevice?.writeConfig(config, profileId: UInt8(id))
+        try! controlDevice?.writeButtonMappings(buttons, profileId: UInt8(id))
     }
     
     

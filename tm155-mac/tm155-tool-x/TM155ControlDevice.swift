@@ -140,7 +140,7 @@ enum TM155MouseButton: UInt8 {
     }
 }
 
-enum TM155MouseOrKey {
+enum TM155MouseOrKey: Equatable {
     case key(TM155Key)
     case mouse(TM155MouseButton)
     
@@ -215,7 +215,7 @@ enum TM155MacroRepeatMode: UInt8 {
     case untilKeyReleased = 2
 }
 
-enum TM155Button {
+enum TM155Button: Equatable {
     // Type 00: Keyboard Event
     case key(TM155KeyModifierFlags, TM155Key?, TM155Key?)
     
@@ -715,5 +715,19 @@ class TM155ControlDevice: HIDDevice {
                 onComplete(parsed)
             },
             onError: onError)
+    }
+    
+    func writeButtonMappings(_ buttons: [TM155Button?], profileId: UInt8) throws {
+        if buttons.count != 32 {
+            throw TM155Error.sizeError
+        }
+        
+        var data = [UInt8](repeating: 0, count: 0x80)
+        for (button, offset) in zip(buttons, stride(from: 0, to: 0x80, by: 4)) {
+            let bytes = button?.bytes ?? [0, 0, 0, 0]
+            data.replaceSubrange(offset ..< offset+4, with: bytes)
+        }
+        
+        try writeBulkData(id: 0xD, args: [profileId, 0x80, 0, 0, 0, 0], data: data)
     }
 }
