@@ -287,7 +287,37 @@ class AppDelegate: NSObject, NSApplicationDelegate, HIDManagerDelegate, NSTableV
     }
     
     
+    private var profileWindows: [ProfileWindow?] = [nil, nil, nil, nil, nil, nil]
+    
     @IBAction func editProfile(_ sender: Any) {
+        let id = enabledProfileList.selectedRow
+        if id >= 0 {
+            if case .none = self.profileWindows[id] {
+                self.profileWindows[id] = ProfileWindow.init(windowNibName: "ProfileWindow")
+            }
+            
+            let window = self.profileWindows[id]!
+            if window.window!.isVisible {
+                print("Showing again")
+                window.window!.makeKeyAndOrderFront(self)
+            } else {
+                print("Setup from closed")
+                // request everything we need
+                if let dev = controlDevice {
+                    try! dev.requestConfig(profileId: UInt8(id), onComplete: { config in
+                        try! dev.requestButtonMappings(profileId: UInt8(id), onComplete: { buttons in
+                            // we've got everything we need, build the window
+                            window.setup(profileId: id, config: config, buttons: buttons)
+                            window.showWindow(self)
+                        }, onError: { error in
+                            NSAlert.init(error: error).runModal()
+                        })
+                    }, onError: { error in
+                        NSAlert.init(error: error).runModal()
+                    })
+                }
+            }
+        }
     }
     
     

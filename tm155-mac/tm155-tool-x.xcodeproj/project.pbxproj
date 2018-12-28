@@ -14,20 +14,21 @@
 		5EC5275F21CF666A003F9740 /* HIDManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC5275E21CF666A003F9740 /* HIDManager.swift */; };
 		5EC5276121CF74D6003F9740 /* HIDDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC5276021CF74D6003F9740 /* HIDDevice.swift */; };
 		5EC5276321CF8169003F9740 /* TM155ControlDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC5276221CF8169003F9740 /* TM155ControlDevice.swift */; };
-		5EC5276721CFDEAE003F9740 /* HexFiend.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EC5276621CFDEAE003F9740 /* HexFiend.framework */; };
-		5EC5276B21CFECBA003F9740 /* HexFiend.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EC5276621CFDEAE003F9740 /* HexFiend.framework */; };
-		5EC5276C21CFECBA003F9740 /* HexFiend.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5EC5276621CFDEAE003F9740 /* HexFiend.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5EC5276F21D28E8C003F9740 /* ButtonTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC5276E21D28E8C003F9740 /* ButtonTableCellView.swift */; };
+		5EC5277121D2BAB5003F9740 /* HexFiend.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EC5277021D2BAB5003F9740 /* HexFiend.framework */; };
+		5EC5277221D2BAB5003F9740 /* HexFiend.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5EC5277021D2BAB5003F9740 /* HexFiend.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5EC5277821D2D035003F9740 /* ProfileWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC5277621D2D035003F9740 /* ProfileWindow.swift */; };
+		5EC5277921D2D035003F9740 /* ProfileWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EC5277721D2D035003F9740 /* ProfileWindow.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		5EC5276D21CFECBB003F9740 /* Embed Frameworks */ = {
+		5EC5277321D2BAB5003F9740 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				5EC5276C21CFECBA003F9740 /* HexFiend.framework in Embed Frameworks */,
+				5EC5277221D2BAB5003F9740 /* HexFiend.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -48,6 +49,9 @@
 		5EC5276621CFDEAE003F9740 /* HexFiend.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HexFiend.framework; path = "../../../Library/Developer/Xcode/DerivedData/HexFiend_2-fmncyynketdhiddteswqjacylteg/Build/Products/Debug/HexFiend.framework"; sourceTree = "<group>"; };
 		5EC5276821CFE184003F9740 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		5EC5276E21D28E8C003F9740 /* ButtonTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTableCellView.swift; sourceTree = "<group>"; };
+		5EC5277021D2BAB5003F9740 /* HexFiend.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HexFiend.framework; path = "../../../../Library/Developer/Xcode/DerivedData/HexFiend_2-fmncyynketdhiddteswqjacylteg/Build/Products/Debug/HexFiend.framework"; sourceTree = "<group>"; };
+		5EC5277621D2D035003F9740 /* ProfileWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileWindow.swift; sourceTree = "<group>"; };
+		5EC5277721D2D035003F9740 /* ProfileWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileWindow.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,8 +60,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EC5275D21CF6641003F9740 /* IOKit.framework in Frameworks */,
-				5EC5276B21CFECBA003F9740 /* HexFiend.framework in Frameworks */,
-				5EC5276721CFDEAE003F9740 /* HexFiend.framework in Frameworks */,
+				5EC5277121D2BAB5003F9740 /* HexFiend.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,6 +70,7 @@
 		5EC5274121CF6631003F9740 = {
 			isa = PBXGroup;
 			children = (
+				5EC5277021D2BAB5003F9740 /* HexFiend.framework */,
 				5EC5274C21CF6631003F9740 /* tm155-tool-x */,
 				5EC5274B21CF6631003F9740 /* Products */,
 				5EC5275B21CF6641003F9740 /* Frameworks */,
@@ -84,6 +88,8 @@
 		5EC5274C21CF6631003F9740 /* tm155-tool-x */ = {
 			isa = PBXGroup;
 			children = (
+				5EC5277621D2D035003F9740 /* ProfileWindow.swift */,
+				5EC5277721D2D035003F9740 /* ProfileWindow.xib */,
 				5EC5274D21CF6631003F9740 /* AppDelegate.swift */,
 				5EC5275E21CF666A003F9740 /* HIDManager.swift */,
 				5EC5274F21CF6633003F9740 /* Assets.xcassets */,
@@ -117,7 +123,7 @@
 				5EC5274621CF6631003F9740 /* Sources */,
 				5EC5274721CF6631003F9740 /* Frameworks */,
 				5EC5274821CF6631003F9740 /* Resources */,
-				5EC5276D21CFECBB003F9740 /* Embed Frameworks */,
+				5EC5277321D2BAB5003F9740 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -173,6 +179,7 @@
 			files = (
 				5EC5275021CF6633003F9740 /* Assets.xcassets in Resources */,
 				5EC5275321CF6633003F9740 /* MainMenu.xib in Resources */,
+				5EC5277921D2D035003F9740 /* ProfileWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,6 +191,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EC5276F21D28E8C003F9740 /* ButtonTableCellView.swift in Sources */,
+				5EC5277821D2D035003F9740 /* ProfileWindow.swift in Sources */,
 				5EC5276321CF8169003F9740 /* TM155ControlDevice.swift in Sources */,
 				5EC5274E21CF6631003F9740 /* AppDelegate.swift in Sources */,
 				5EC5275F21CF666A003F9740 /* HIDManager.swift in Sources */,
