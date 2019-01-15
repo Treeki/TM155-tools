@@ -18,6 +18,8 @@ class ButtonActionController: NSViewController, NSOutlineViewDelegate, NSOutline
         case none
         case constant(TM155Button)
         case key
+        case overrideDpi
+        case overrideSensitivity
         case group(String, [ActionDefRef])
     }
     
@@ -65,6 +67,17 @@ class ButtonActionController: NSViewController, NSOutlineViewDelegate, NSOutline
             ActionDefRef(.constant(.alternateButtonGroup))
             ])),
         ]
+    // TODO:
+    // System Control
+    // Consumer Control
+    // Notify App
+    // Macro
+    // Timed Repeat
+    // bt0A0,0A1
+    // Override DPI, Sensitivity
+    // Key and Tab
+    // Adjust DPI, Sensitivity
+    // Cycle Colour
 
     
     @IBOutlet weak var buttonTypeOutline: NSOutlineView!
@@ -129,6 +142,8 @@ class ButtonActionController: NSViewController, NSOutlineViewDelegate, NSOutline
                 switch item.d {
                 case .none: text = "None"
                 case .key: text = "Key"
+                case .overrideDpi: text = "Override DPI"
+                case .overrideSensitivity: text = "Override Sensitivity"
                 case .constant(let button): text = button.description
                 case .group(let name, _): text = name
                 }
@@ -159,6 +174,14 @@ class ButtonActionController: NSViewController, NSOutlineViewDelegate, NSOutline
                 }
             case .key:
                 if case .some(.key(_, _, _)) = button {
+                    return true
+                }
+            case .overrideDpi:
+                if case .some(.overrideDpi(_, _)) = button {
+                    return true
+                }
+            case .overrideSensitivity:
+                if case .some(.overrideSensitivity(_, _)) = button {
                     return true
                 }
             case .group(_, let children):
@@ -201,7 +224,6 @@ class ButtonActionController: NSViewController, NSOutlineViewDelegate, NSOutline
     }
     
     @IBAction func outlineAction(_ sender: Any) {
-        print("OutlineAction")
         if buttonTypeOutline.clickedRow == -1 {
             return
         }
@@ -223,6 +245,10 @@ class ButtonActionController: NSViewController, NSOutlineViewDelegate, NSOutline
             self.button = button
         case .key:
             button = .key(.init(rawValue: 0), nil, nil)
+        case .overrideDpi:
+            button = .overrideDpi(x: 0, y: 0)
+        case .overrideSensitivity:
+            button = .overrideSensitivity(x: 0, y: 0)
         }
         
         displayParamsFor(def, button)
@@ -249,6 +275,15 @@ class ButtonActionController: NSViewController, NSOutlineViewDelegate, NSOutline
     @IBOutlet weak var keyTabModifiers: NSPopUpButton!
     @IBOutlet weak var keyTabKey1: NSPopUpButton!
     @IBOutlet weak var keyTabKey2: NSPopUpButton!
+    @IBOutlet weak var overrideTab: NSTabViewItem!
+    
+    // DPI: range 1-41 (step: 200, range 200-8200)
+    // Sensitivity: ???
+    @IBOutlet weak var overrideFormatter: NumberFormatter!
+    @objc var overrideMin: Double = 0
+    @objc var overrideMax: Double = 0
+    @objc var overrideX: Int = 0
+    @objc var overrideY: Int = 0
     
     @IBAction func toggleState(_ sender: NSMenuItem) {
         sender.state = (sender.state == .on) ? .off : .on
@@ -338,15 +373,43 @@ class ButtonActionController: NSViewController, NSOutlineViewDelegate, NSOutline
                 displayKey(key1, control: keyTabKey1)
                 displayKey(key2, control: keyTabKey2)
             }
+        case .overrideDpi:
+            typeTabView.selectTabViewItem(overrideTab)
+            overrideMin = 1
+            overrideMax = 41
+            overrideFormatter.multiplier = 200
+            overrideFormatter.minimum = 1
+            overrideFormatter.maximum = 41
+            if case .some(.overrideDpi(let x, let y)) = button {
+                overrideX = Int(x)
+                overrideY = Int(y)
+            }
+        case .overrideSensitivity:
+            typeTabView.selectTabViewItem(overrideTab)
+            overrideMin = 0
+            overrideMax = 255
+            overrideFormatter.multiplier = 1
+            overrideFormatter.minimum = 0
+            overrideFormatter.maximum = 2555
+            if case .some(.overrideSensitivity(let x, let y)) = button {
+                overrideX = Int(x)
+                overrideY = Int(y)
+            }
         }
     }
     
     func syncParamsFromControls() {
-        if typeTabView.selectedTabViewItem == keyTab {
+        if case .some(.key(_, _, _)) = button {
             let modifier = keyModifierFlagsFromControl(keyTabModifiers)
             let key1 = keyFromControl(keyTabKey1)
             let key2 = keyFromControl(keyTabKey2)
             button = .key(modifier, key1, key2)
+        }
+        else if case .some(.overrideDpi(_, _)) = button {
+            button = .overrideDpi(x: UInt8(overrideX), y: UInt8(overrideY))
+        }
+        else if case .some(.overrideSensitivity(_, _)) = button {
+            button = .overrideSensitivity(x: UInt8(overrideX), y: UInt8(overrideY))
         }
     }
 }

@@ -14,14 +14,16 @@
                 <outlet property="keyTabKey1" destination="8T7-J7-fWI" id="9mH-Xo-35b"/>
                 <outlet property="keyTabKey2" destination="TFo-sB-w2O" id="yCM-zf-WKV"/>
                 <outlet property="keyTabModifiers" destination="Fa1-ea-zU5" id="u0a-dy-tWW"/>
+                <outlet property="overrideFormatter" destination="hNO-eL-cFB" id="udf-zh-BOP"/>
+                <outlet property="overrideTab" destination="qal-pC-6pK" id="hVz-6A-KBg"/>
                 <outlet property="typeTabView" destination="c4j-PK-9je" id="K4f-Xh-TMp"/>
                 <outlet property="view" destination="qXn-mX-Ccn" id="PG6-5A-kQB"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" misplaced="YES" detachesHiddenViews="YES" id="qXn-mX-Ccn">
-            <rect key="frame" x="0.0" y="0.0" width="321" height="365"/>
+        <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" id="qXn-mX-Ccn">
+            <rect key="frame" x="0.0" y="0.0" width="337" height="365"/>
             <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
             <subviews>
                 <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HNo-FQ-FpD">
@@ -104,8 +106,8 @@
                     <font key="font" metaFont="system"/>
                     <tabViewItems>
                         <tabViewItem label="Empty" identifier="" id="PKW-zx-CKk">
-                            <view key="view" id="IAv-x2-C7x">
-                                <rect key="frame" x="0.0" y="0.0" width="321" height="8"/>
+                            <view key="view" misplaced="YES" id="IAv-x2-C7x">
+                                <rect key="frame" x="0.0" y="0.0" width="321" height="101"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <customView identifier="placeholderView" translatesAutoresizingMaskIntoConstraints="NO" id="66w-AD-Mna">
@@ -201,6 +203,116 @@
                                 </constraints>
                             </view>
                         </tabViewItem>
+                        <tabViewItem label="Overrides" identifier="" id="qal-pC-6pK">
+                            <view key="view" id="Cjm-uZ-Nv0">
+                                <rect key="frame" x="0.0" y="0.0" width="321" height="101"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ckb-Vr-SzK">
+                                        <rect key="frame" x="18" y="74" width="17" height="17"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="X:" id="sh3-gK-7jx">
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="sTl-nH-z7O">
+                                        <rect key="frame" x="36" y="72" width="206" height="19"/>
+                                        <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="BhH-mZ-BLX"/>
+                                        <connections>
+                                            <binding destination="-2" name="maxValue" keyPath="self.overrideMax" id="jRO-qq-MGd"/>
+                                            <binding destination="-2" name="minValue" keyPath="self.overrideMin" previousBinding="jRO-qq-MGd" id="ocw-Ae-TeT"/>
+                                            <binding destination="-2" name="value" keyPath="self.overrideX" previousBinding="ocw-Ae-TeT" id="8mA-Bo-hmm"/>
+                                        </connections>
+                                    </slider>
+                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Zv1-q1-ihn">
+                                        <rect key="frame" x="248" y="71" width="40" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="yRr-Qu-PL2"/>
+                                        </constraints>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="1yN-No-t6I">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                        <connections>
+                                            <binding destination="-2" name="maxValue" keyPath="self.overrideMax" id="g0R-wI-0OE"/>
+                                            <binding destination="-2" name="minValue" keyPath="self.overrideMin" previousBinding="g0R-wI-0OE" id="wBm-eN-cCC"/>
+                                            <binding destination="-2" name="value" keyPath="self.overrideX" previousBinding="wBm-eN-cCC" id="Geq-A0-yDr"/>
+                                        </connections>
+                                    </textField>
+                                    <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="m4A-Px-aOK">
+                                        <rect key="frame" x="285" y="69" width="19" height="27"/>
+                                        <stepperCell key="cell" continuous="YES" alignment="left" maxValue="100" id="Zs0-Pk-EtK"/>
+                                        <connections>
+                                            <binding destination="-2" name="maxValue" keyPath="self.overrideMax" id="RLH-uJ-JtW"/>
+                                            <binding destination="-2" name="minValue" keyPath="self.overrideMin" previousBinding="RLH-uJ-JtW" id="3YY-4i-heV"/>
+                                            <binding destination="-2" name="value" keyPath="self.overrideX" previousBinding="3YY-4i-heV" id="DCk-0s-n18"/>
+                                        </connections>
+                                    </stepper>
+                                    <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="l3g-lB-ecD">
+                                        <rect key="frame" x="36" y="40" width="206" height="19"/>
+                                        <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="1GA-kb-BdL"/>
+                                        <connections>
+                                            <binding destination="-2" name="maxValue" keyPath="self.overrideMax" id="uFy-LV-sKb"/>
+                                            <binding destination="-2" name="minValue" keyPath="self.overrideMin" previousBinding="uFy-LV-sKb" id="58O-mZ-yoF"/>
+                                            <binding destination="-2" name="value" keyPath="self.overrideY" previousBinding="58O-mZ-yoF" id="aQV-Jp-zGk"/>
+                                        </connections>
+                                    </slider>
+                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ufl-8e-iWn">
+                                        <rect key="frame" x="248" y="39" width="40" height="22"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="Bkm-tl-87a">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                        <connections>
+                                            <binding destination="-2" name="maxValue" keyPath="self.overrideMax" id="csx-nn-npX"/>
+                                            <binding destination="-2" name="minValue" keyPath="self.overrideMin" previousBinding="csx-nn-npX" id="k4E-8b-vqO"/>
+                                            <binding destination="-2" name="value" keyPath="self.overrideY" id="tzi-LF-Wbn"/>
+                                        </connections>
+                                    </textField>
+                                    <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JOC-R0-O3Z">
+                                        <rect key="frame" x="285" y="37" width="19" height="27"/>
+                                        <stepperCell key="cell" continuous="YES" alignment="left" maxValue="100" id="0Bc-tV-PFu"/>
+                                        <connections>
+                                            <binding destination="-2" name="maxValue" keyPath="self.overrideMax" id="SFF-Jj-GeX"/>
+                                            <binding destination="-2" name="minValue" keyPath="self.overrideMin" previousBinding="SFF-Jj-GeX" id="KH7-a6-UUS"/>
+                                            <binding destination="-2" name="value" keyPath="self.overrideY" previousBinding="KH7-a6-UUS" id="TEC-de-ZYc"/>
+                                        </connections>
+                                    </stepper>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lMm-c7-vgT">
+                                        <rect key="frame" x="19" y="42" width="16" height="17"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="Y:" id="riM-Pp-Ysb">
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Ufl-8e-iWn" firstAttribute="firstBaseline" secondItem="lMm-c7-vgT" secondAttribute="firstBaseline" id="0eC-JE-g5W"/>
+                                    <constraint firstItem="Zv1-q1-ihn" firstAttribute="firstBaseline" secondItem="Ckb-Vr-SzK" secondAttribute="firstBaseline" id="2L3-2N-3Wf"/>
+                                    <constraint firstAttribute="trailing" secondItem="m4A-Px-aOK" secondAttribute="trailing" constant="20" symbolic="YES" id="7qJ-5N-3hE"/>
+                                    <constraint firstItem="Zv1-q1-ihn" firstAttribute="leading" secondItem="Ufl-8e-iWn" secondAttribute="leading" id="B04-J2-Cpq"/>
+                                    <constraint firstItem="m4A-Px-aOK" firstAttribute="centerY" secondItem="Ckb-Vr-SzK" secondAttribute="centerY" id="DYA-hp-shc"/>
+                                    <constraint firstItem="Zv1-q1-ihn" firstAttribute="trailing" secondItem="Ufl-8e-iWn" secondAttribute="trailing" id="HM6-zF-UzO"/>
+                                    <constraint firstItem="l3g-lB-ecD" firstAttribute="firstBaseline" secondItem="lMm-c7-vgT" secondAttribute="firstBaseline" id="J1V-5A-PXe"/>
+                                    <constraint firstItem="JOC-R0-O3Z" firstAttribute="centerY" secondItem="lMm-c7-vgT" secondAttribute="centerY" id="Mf9-2a-XNi"/>
+                                    <constraint firstItem="sTl-nH-z7O" firstAttribute="firstBaseline" secondItem="Ckb-Vr-SzK" secondAttribute="firstBaseline" id="NSC-Hw-bS9"/>
+                                    <constraint firstItem="m4A-Px-aOK" firstAttribute="leading" secondItem="Zv1-q1-ihn" secondAttribute="trailing" id="RpW-Bm-kn5"/>
+                                    <constraint firstItem="Ckb-Vr-SzK" firstAttribute="leading" secondItem="Cjm-uZ-Nv0" secondAttribute="leading" constant="20" symbolic="YES" id="ViU-2G-g5G"/>
+                                    <constraint firstItem="Ufl-8e-iWn" firstAttribute="top" secondItem="Zv1-q1-ihn" secondAttribute="bottom" constant="10" symbolic="YES" id="ah8-qv-zSl"/>
+                                    <constraint firstItem="Zv1-q1-ihn" firstAttribute="leading" secondItem="sTl-nH-z7O" secondAttribute="trailing" constant="8" symbolic="YES" id="cvP-MG-O7g"/>
+                                    <constraint firstItem="sTl-nH-z7O" firstAttribute="leading" secondItem="Ckb-Vr-SzK" secondAttribute="trailing" constant="5" id="g5j-fy-U8a"/>
+                                    <constraint firstItem="Zv1-q1-ihn" firstAttribute="top" secondItem="Cjm-uZ-Nv0" secondAttribute="top" constant="8" id="iBb-O9-4hM"/>
+                                    <constraint firstItem="lMm-c7-vgT" firstAttribute="trailing" secondItem="Ckb-Vr-SzK" secondAttribute="trailing" id="j0g-uE-q4n"/>
+                                    <constraint firstItem="l3g-lB-ecD" firstAttribute="leading" secondItem="sTl-nH-z7O" secondAttribute="leading" id="tdW-iF-gsK"/>
+                                    <constraint firstItem="Ufl-8e-iWn" firstAttribute="leading" secondItem="l3g-lB-ecD" secondAttribute="trailing" constant="8" symbolic="YES" id="uTk-OT-Plh"/>
+                                    <constraint firstItem="JOC-R0-O3Z" firstAttribute="leading" secondItem="Ufl-8e-iWn" secondAttribute="trailing" id="w4k-q0-vT3"/>
+                                </constraints>
+                            </view>
+                        </tabViewItem>
                     </tabViewItems>
                     <connections>
                         <outlet property="delegate" destination="-2" id="XRd-Bv-Jc3"/>
@@ -242,6 +354,9 @@
                 <real value="3.4028234663852886e+38"/>
                 <real value="3.4028234663852886e+38"/>
             </customSpacing>
+            <point key="canvasLocation" x="131.5" y="153.5"/>
         </stackView>
+        <userDefaultsController representsSharedInstance="YES" id="EJX-7H-9Lv"/>
+        <numberFormatter formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="hNO-eL-cFB"/>
     </objects>
 </document>
