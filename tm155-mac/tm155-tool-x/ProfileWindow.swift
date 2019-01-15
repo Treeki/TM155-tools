@@ -12,7 +12,7 @@ protocol ProfileWindowDelegate: AnyObject {
     func profileSaved(id: Int, config: [UInt8], buttons: [TM155Button?])
 }
 
-class ProfileWindow: NSWindowController, NSTableViewDelegate, NSTableViewDataSource, NSOutlineViewDelegate, NSOutlineViewDataSource {
+class ProfileWindow: NSWindowController, NSTableViewDelegate, NSTableViewDataSource, ButtonActionDelegate {
     public weak var delegate: ProfileWindowDelegate?
     
     private var profileId: Int = -1
@@ -38,55 +38,6 @@ class ProfileWindow: NSWindowController, NSTableViewDelegate, NSTableViewDataSou
         (7, "M5"),
     ]
     
-    enum ActionDef {
-        case none
-        case constant(TM155Button)
-        case group(String, [ActionDefRef])
-    }
-    
-    class ActionDefRef {
-        var d: ActionDef
-        init (_ def: ActionDef) {
-            d = def
-        }
-    }
-    
-    static let ActionDefinitions: [ActionDefRef] = [
-        ActionDefRef(.none),
-        ActionDefRef(.group("Buttons", [
-            ActionDefRef(.constant(.mouse(.left))),
-            ActionDefRef(.constant(.mouse(.right))),
-            ActionDefRef(.constant(.mouse(.middle))),
-            ActionDefRef(.constant(.mouse(.button4))),
-            ActionDefRef(.constant(.mouse(.button5))),
-        ])),
-        ActionDefRef(.group("Scrolling", [
-            ActionDefRef(.constant(.scroll(.tiltLeft))),
-            ActionDefRef(.constant(.scroll(.tiltRight))),
-            ActionDefRef(.constant(.scroll(.wheelUp))),
-            ActionDefRef(.constant(.scroll(.wheelDown))),
-            ActionDefRef(.constant(.mouse(.tiltLeft))),
-            ActionDefRef(.constant(.mouse(.tiltRight))),
-            ActionDefRef(.constant(.mouse(.wheelUp))),
-            ActionDefRef(.constant(.mouse(.wheelDown))),
-        ])),
-        ActionDefRef(.group("Parameters", [
-            ActionDefRef(.constant(.reportRateUp)),
-            ActionDefRef(.constant(.reportRateDown)),
-            ActionDefRef(.constant(.reportRateCycle)),
-            ActionDefRef(.constant(.dpiStageUp)),
-            ActionDefRef(.constant(.dpiStageDown)),
-            ActionDefRef(.constant(.dpiStageCycle)),
-            ActionDefRef(.constant(.profilePrevious)),
-            ActionDefRef(.constant(.profileUp)),
-            ActionDefRef(.constant(.profileDown)),
-            ActionDefRef(.constant(.profileCycle)),
-            ActionDefRef(.constant(.profileUnkFF)),
-        ])),
-        ActionDefRef(.group("Chords", [
-            ActionDefRef(.constant(.alternateButtonGroup))
-        ])),
-    ]
 
     @IBOutlet var popover: NSPopover!
     @IBOutlet weak var buttonTable: NSTableView!
@@ -97,8 +48,8 @@ class ProfileWindow: NSWindowController, NSTableViewDelegate, NSTableViewDataSou
     @IBOutlet weak var enable500Hz: NSButton!
     @IBOutlet weak var enable250Hz: NSButton!
     @IBOutlet weak var enable125Hz: NSButton!
-    @IBOutlet weak var buttonTypeOutline: NSOutlineView!
-    
+    @IBOutlet weak var buttonActionEditor: ButtonActionController!
+
     override func windowDidLoad() {
         super.windowDidLoad()
     }
@@ -108,12 +59,26 @@ class ProfileWindow: NSWindowController, NSTableViewDelegate, NSTableViewDataSou
         self.config = config
         self.buttons = buttons
         
+        let disabledRates = config[0x40]
+        enable1000Hz.state = ((disabledRates & 1) == 1) ? .on : .off
+        enable500Hz.state = ((disabledRates & 2) == 2) ? .on : .off
+        enable250Hz.state = ((disabledRates & 4) == 4) ? .on : .off
+        enable125Hz.state = ((disabledRates & 8) == 8) ? .on : .off
+        
+        // TODO figure out why this is needed
+        buttonActionEditor.delegate = self
+        
         window?.title = "Editing Profile \(profileId + 1)"
         buttonTable.reloadData()
     }
     
     
     @IBAction func saveAction(_ sender: Any) {
+        config[0x40] =
+            ((enable1000Hz.state == .on) ? 1 : 0) |
+            ((enable500Hz.state == .on) ? 2 : 0) |
+            ((enable250Hz.state == .on) ? 4 : 0) |
+            ((enable125Hz.state == .on) ? 8 : 0)
         delegate?.profileSaved(id: profileId, config: config, buttons: buttons)
     }
 
@@ -128,16 +93,14 @@ class ProfileWindow: NSWindowController, NSTableViewDelegate, NSTableViewDataSou
         if let targetCell = buttonTable.view(atColumn: showAltAction ? 2 : 1, row: row, makeIfNecessary: false) {
             
             // Show this button
-            let index = ProfileWindow.ButtonDefinitions[row].0
-            editedButtonIndex = index
+            var index = ProfileWindow.ButtonDefinitions[row].0
             if showAltAction {
-                editedButtonIndex += altButtonOffset
+                index += altButtonOffset
             }
-            
-            selectActionInOutline(buttons[editedButtonIndex])
             
             // Spawn the popover
             popover.show(relativeTo: NSRect(), of: targetCell, preferredEdge: NSRectEdge.minY)
+            buttonActionEditor.setButton(buttons[index], index: index)
         }
     }
     
@@ -176,150 +139,13 @@ class ProfileWindow: NSWindowController, NSTableViewDelegate, NSTableViewDataSou
     }
     
     
-    @IBAction func saveEvent(_ sender: Any) {
+    func updateButton(_ button: TM155Button?, forIndex: Int) {
+        buttons[forIndex] = button
         buttonTable.reloadData()
     }
     
-    
-    
-    func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: Any?) -> Any {
-        if let item = item as? ActionDefRef {
-            if case .group(_, let children) = item.d {
-                return children[index]
-            } else {
-                fatalError()
-            }
-        } else {
-            return ProfileWindow.ActionDefinitions[index]
-        }
+    func editingDone() {
+        popover.close()
     }
     
-    func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: Any) -> Bool {
-        if let item = item as? ActionDefRef {
-            if case .group(_, let children) = item.d {
-                return !children.isEmpty
-            }
-        }
-        return false
-    }
-    
-    func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
-        if let item = item as? ActionDefRef {
-            if case .group(_, let children) = item.d {
-                return children.count
-            } else {
-                return 0
-            }
-        } else {
-            // this must be the top-level item
-            return ProfileWindow.ActionDefinitions.count
-        }
-    }
-    
-    func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
-        if let tableColumn = tableColumn {
-            if let item = item as? ActionDefRef {
-                let text: String
-                
-                switch item.d {
-                case .none: text = "None"
-                case .constant(let button): text = button.description
-                case .group(let name, _): text = name
-                }
-                
-                if let view = outlineView.makeView(withIdentifier: tableColumn.identifier, owner: self) {
-                    let view = view as! NSTableCellView
-                    view.textField?.stringValue = text
-                    return view
-                }
-            }
-        }
-        
-        return nil
-    }
-    
-    func selectActionInOutline(_ button: TM155Button?) {
-        // this is a really inefficient recursive algorithm
-        // but we don't have many definitions so that's OK
-        func contains(_ defs: [ActionDefRef]) -> Bool {
-            for def in defs {
-                switch def.d {
-                case .none:
-                    if button == nil {
-                        return true
-                    }
-                case .constant(let check):
-                    if let button = button {
-                        if button == check {
-                            return true
-                        }
-                    }
-                case .group(_, let children):
-                    if contains(children) {
-                        return true
-                    }
-                }
-            }
-            return false
-        }
-        
-        var match: ActionDefRef? = nil
-
-        func findAndExpand(_ defs: [ActionDefRef]) {
-            for def in defs {
-                switch def.d {
-                case .none:
-                    if button == nil {
-                        match = def
-                        return
-                    }
-                case .constant(let check):
-                    if let button = button {
-                        if button == check {
-                            match = def
-                            return
-                        }
-                    }
-                case .group(_, let children):
-                    if contains(children) {
-                        buttonTypeOutline.expandItem(def)
-                        findAndExpand(children)
-                        return
-                    }
-                }
-            }
-        }
-        
-        findAndExpand(ProfileWindow.ActionDefinitions)
-        
-        let row = buttonTypeOutline.row(forItem: match)
-        if row == -1 {
-            buttonTypeOutline.deselectAll(nil)
-        } else {
-            let indexSet = IndexSet(integer: row)
-            buttonTypeOutline.selectRowIndexes(indexSet, byExtendingSelection: false)
-            buttonTypeOutline.scrollRowToVisible(row)
-        }
-    }
-    
-    @IBAction func outlineDoubleAction(_ sender: Any) {
-        if buttonTypeOutline.clickedRow == -1 {
-            return
-        }
-        
-        let def = buttonTypeOutline.item(atRow: buttonTypeOutline.clickedRow) as! ActionDefRef
-        switch def.d {
-        case .none:
-            buttons[editedButtonIndex] = nil
-            buttonTable.reloadData()
-            popover.close()
-        case .constant(let button):
-            buttons[editedButtonIndex] = button
-            buttonTable.reloadData()
-            popover.close()
-        case .group(_, _):
-            // nothing happens when you select a group!
-            break
-        }
-    }
 }

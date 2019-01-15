@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E45970321D6B9C00067E10A /* ButtonActionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E45970121D6B9C00067E10A /* ButtonActionController.swift */; };
+		5E45970421D6B9C00067E10A /* ButtonActionController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E45970221D6B9C00067E10A /* ButtonActionController.xib */; };
 		5EC5274E21CF6631003F9740 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC5274D21CF6631003F9740 /* AppDelegate.swift */; };
 		5EC5275021CF6633003F9740 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EC5274F21CF6633003F9740 /* Assets.xcassets */; };
 		5EC5275321CF6633003F9740 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EC5275121CF6633003F9740 /* MainMenu.xib */; };
@@ -36,6 +38,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5E45970121D6B9C00067E10A /* ButtonActionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonActionController.swift; sourceTree = "<group>"; };
+		5E45970221D6B9C00067E10A /* ButtonActionController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonActionController.xib; sourceTree = "<group>"; };
+		5E9E584121E8AC6C007E5ACE /* HexFiend.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HexFiend.framework; sourceTree = "<group>"; };
 		5EC5274A21CF6631003F9740 /* tm155-tool-x.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tm155-tool-x.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EC5274D21CF6631003F9740 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5EC5274F21CF6633003F9740 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -46,7 +51,6 @@
 		5EC5275E21CF666A003F9740 /* HIDManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HIDManager.swift; sourceTree = "<group>"; };
 		5EC5276021CF74D6003F9740 /* HIDDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HIDDevice.swift; sourceTree = "<group>"; };
 		5EC5276221CF8169003F9740 /* TM155ControlDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TM155ControlDevice.swift; sourceTree = "<group>"; };
-		5EC5276621CFDEAE003F9740 /* HexFiend.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HexFiend.framework; path = "../../../Library/Developer/Xcode/DerivedData/HexFiend_2-fmncyynketdhiddteswqjacylteg/Build/Products/Debug/HexFiend.framework"; sourceTree = "<group>"; };
 		5EC5276821CFE184003F9740 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		5EC5276E21D28E8C003F9740 /* ButtonTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTableCellView.swift; sourceTree = "<group>"; };
 		5EC5277021D2BAB5003F9740 /* HexFiend.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HexFiend.framework; path = "../../../../Library/Developer/Xcode/DerivedData/HexFiend_2-fmncyynketdhiddteswqjacylteg/Build/Products/Debug/HexFiend.framework"; sourceTree = "<group>"; };
@@ -100,6 +104,8 @@
 				5EC5276021CF74D6003F9740 /* HIDDevice.swift */,
 				5EC5276221CF8169003F9740 /* TM155ControlDevice.swift */,
 				5EC5276821CFE184003F9740 /* Bridging-Header.h */,
+				5E45970121D6B9C00067E10A /* ButtonActionController.swift */,
+				5E45970221D6B9C00067E10A /* ButtonActionController.xib */,
 			);
 			path = "tm155-tool-x";
 			sourceTree = "<group>";
@@ -107,7 +113,7 @@
 		5EC5275B21CF6641003F9740 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5EC5276621CFDEAE003F9740 /* HexFiend.framework */,
+				5E9E584121E8AC6C007E5ACE /* HexFiend.framework */,
 				5EC5275C21CF6641003F9740 /* IOKit.framework */,
 			);
 			name = Frameworks;
@@ -178,6 +184,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EC5275021CF6633003F9740 /* Assets.xcassets in Resources */,
+				5E45970421D6B9C00067E10A /* ButtonActionController.xib in Resources */,
 				5EC5275321CF6633003F9740 /* MainMenu.xib in Resources */,
 				5EC5277921D2D035003F9740 /* ProfileWindow.xib in Resources */,
 			);
@@ -196,6 +203,7 @@
 				5EC5274E21CF6631003F9740 /* AppDelegate.swift in Sources */,
 				5EC5275F21CF666A003F9740 /* HIDManager.swift in Sources */,
 				5EC5276121CF74D6003F9740 /* HIDDevice.swift in Sources */,
+				5E45970321D6B9C00067E10A /* ButtonActionController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

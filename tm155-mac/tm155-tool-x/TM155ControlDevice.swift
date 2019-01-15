@@ -30,6 +30,11 @@ struct TM155KeyModifierFlags: OptionSet {
     static let rightAlt = TM155KeyModifierFlags(rawValue: 0x40)
     static let rightSuper = TM155KeyModifierFlags(rawValue: 0x80)
     
+    static let allValues: [TM155KeyModifierFlags] = [
+        .leftControl, .leftShift, .leftAlt, .leftSuper,
+        .rightControl, .rightShift, .rightAlt, .rightSuper
+    ]
+    
     var description: String {
         var bits: [String] = []
         if self.contains(.leftControl) {
@@ -56,7 +61,7 @@ struct TM155KeyModifierFlags: OptionSet {
         if self.contains(.rightSuper) {
             bits.append("Right ⌘")
         }
-        return bits.joined(separator: ", ")
+        return bits.isEmpty ? "None" : bits.joined(separator: ", ")
     }
 }
 
@@ -108,6 +113,14 @@ enum TM155Key: UInt8 {
     
     case leftControl = 0xE0, leftShift, leftAlt, leftSuper
     case rightControl, rightShift, rightAlt, rightSuper
+    
+    static var allValues: [TM155Key] {
+        let range1 = TM155Key.a.rawValue ... TM155Key.exSel.rawValue
+        let range2 = TM155Key.leftControl.rawValue ... TM155Key.rightSuper.rawValue
+        let group1 = range1.map({ (x) -> TM155Key in TM155Key.init(rawValue: x)! })
+        let group2 = range2.map({ (x) -> TM155Key in TM155Key.init(rawValue: x)! })
+        return group1 + group2
+    }
     
     var description: String {
         return "Key:\(rawValue)"
