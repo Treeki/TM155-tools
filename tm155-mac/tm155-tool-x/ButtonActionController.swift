@@ -64,7 +64,9 @@ class ButtonActionController: NSViewController, NSOutlineViewDelegate, NSOutline
             ActionDefRef(.constant(.profileUnkFF)),
             ])),
         ActionDefRef(.group("Chords", [
-            ActionDefRef(.constant(.alternateButtonGroup))
+            ActionDefRef(.constant(.alternateButtonGroup)),
+            ActionDefRef(.overrideDpi),
+            ActionDefRef(.overrideSensitivity),
             ])),
         ]
     // TODO:
@@ -246,9 +248,9 @@ class ButtonActionController: NSViewController, NSOutlineViewDelegate, NSOutline
         case .key:
             button = .key(.init(rawValue: 0), nil, nil)
         case .overrideDpi:
-            button = .overrideDpi(x: 0, y: 0)
+            button = .overrideDpi(x: 20, y: 20)
         case .overrideSensitivity:
-            button = .overrideSensitivity(x: 0, y: 0)
+            button = .overrideSensitivity(x: 20, y: 20)
         }
         
         displayParamsFor(def, button)
@@ -280,10 +282,10 @@ class ButtonActionController: NSViewController, NSOutlineViewDelegate, NSOutline
     // DPI: range 1-41 (step: 200, range 200-8200)
     // Sensitivity: ???
     @IBOutlet weak var overrideFormatter: NumberFormatter!
-    @objc var overrideMin: Double = 0
-    @objc var overrideMax: Double = 0
-    @objc var overrideX: Int = 0
-    @objc var overrideY: Int = 0
+    @objc dynamic var overrideMin: Int = 0
+    @objc dynamic var overrideMax: Int = 0
+    @objc dynamic var overrideX: Int = 0
+    @objc dynamic var overrideY: Int = 0
     
     @IBAction func toggleState(_ sender: NSMenuItem) {
         sender.state = (sender.state == .on) ? .off : .on
@@ -381,7 +383,11 @@ class ButtonActionController: NSViewController, NSOutlineViewDelegate, NSOutline
             overrideFormatter.minimum = 1
             overrideFormatter.maximum = 41
             if case .some(.overrideDpi(let x, let y)) = button {
+                // force a KVC update so that the textfield will
+                // refresh even if the old/new values are the same
+                overrideX = 255
                 overrideX = Int(x)
+                overrideY = 255
                 overrideY = Int(y)
             }
         case .overrideSensitivity:
@@ -392,7 +398,11 @@ class ButtonActionController: NSViewController, NSOutlineViewDelegate, NSOutline
             overrideFormatter.minimum = 0
             overrideFormatter.maximum = 2555
             if case .some(.overrideSensitivity(let x, let y)) = button {
+                // force a KVC update so that the textfield will
+                // refresh even if the old/new values are the same
+                overrideX = 0
                 overrideX = Int(x)
+                overrideY = 0
                 overrideY = Int(y)
             }
         }
@@ -413,3 +423,4 @@ class ButtonActionController: NSViewController, NSOutlineViewDelegate, NSOutline
         }
     }
 }
+

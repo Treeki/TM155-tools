@@ -498,7 +498,7 @@ enum TM155Button: Equatable {
         case .bt0A1(let a, let b):
             return "0A1 \(a),\(b)"
         case .overrideDpi(x: let x, y: let y):
-            return "DPI Override: (\(x),\(y))"
+            return "DPI Override: (\(Int(x) * 200),\(Int(y) * 200))"
         case .overrideSensitivity(x: let x, y: let y):
             return "Sensitivity Override: (\(x),\(y))"
         case .keyAndTab(let key, delay: _):
