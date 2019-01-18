@@ -206,6 +206,75 @@ struct TM155SystemControl: OptionSet {
     }
 }
 
+enum TM155ConsumerControl: UInt16 {
+    // old windows ref: http://download.microsoft.com/download/E/3/A/E3AEC7D7-245D-491F-BB8A-E1E05A03677A/keyboard-support-windows-8.docx
+    // handled by hidserv on windows
+    // not sure where to look for OS X info just yet
+    
+    case power               = 0x30
+    case sleep               = 0x32
+    case menu                = 0x40
+    case brightnessUp        = 0x6F  // win-only
+    case brightnessDown      = 0x70  // win-only
+    case brightnessMin       = 0x73
+    case brightnessMax       = 0x74
+    case brightnessAuto      = 0x75
+    case channelUp           = 0x9C  // win appcmd33
+    case channelDown         = 0x9D  // win appcmd34
+    case mediaPlay           = 0xB0  // win appcmd2E
+    case mediaPause          = 0xB1  // win appcmd2F
+    case mediaRecord         = 0xB2  // win appcmd30
+    case mediaFastForward    = 0xB3  // win appcmd31
+    case mediaRewind         = 0xB4  // win appcmd32
+    case mediaNextTrack      = 0xB5  // win
+    case mediaPreviousTrack  = 0xB6  // win
+    case mediaStop           = 0xB7  // win
+    case mediaEject          = 0xB8  // win
+    case mediaPlayOrPause    = 0xCD  // win appcmd37
+
+    case mute                = 0xE2  // win appcmd08
+    case bassBoost           = 0xE5  // win appcmd14
+    case loudness            = 0xE7  // win - old versions only?
+    case volumeUp            = 0xE9  // win appcmd0A
+    case volumeDown          = 0xEA  // win
+    case bassUp              = 0x152 // win appcmd15
+    case bassDown            = 0x153 // win appcmd13
+    case trebleUp            = 0x154 // win appcmd17
+    case trebleDown          = 0x155 // win appcmd16
+    
+    case consumerControlCfg  = 0x183 // win VK_LAUNCH_MEDIA_SELECT
+    case emailReader         = 0x18A // win VK_LAUNCH_MAIL
+    case calculator          = 0x192 // win VK_LAUNCH_APP2
+    case localBrowser        = 0x194 // win VK_LAUNCH_APP1
+    case researchBrowser     = 0x1C6 // win calls weird stuff hids:1
+    case search              = 0x221 // win
+    case home                = 0x223 // win
+    case back                = 0x224 // win
+    case forward             = 0x225 // win
+    case stop                = 0x226 // win
+    case refresh             = 0x227 // win
+    // 228, 229 - previous/next link, ignored by hidserv
+    case bookmarks           = 0x22A // win
+    
+    // reserved windows-specific stuff
+    // none of these appcmds are documented but they do seem to be
+    // fired by hidserv...
+    case unkD1               = 0xD1  // win appcmd38
+    case unkD2               = 0xD2  // win appcmd39
+    case unkD3               = 0xD3  // win appcmd3A
+    case unkD4               = 0xD4  // win appcmd3B
+    case unkD5               = 0xD5  // win appcmd3C
+    case unkD6               = 0xD6  // win appcmd3D
+    case unkD7               = 0xD7  // win appcmd3E
+    case unk2C7              = 0x2C7 // win unk0
+    case unk2C8              = 0x2C8 // win unk1
+    case unk1C8              = 0x1C8 // win unk2 - navigation?
+    
+    var description: String {
+        return String(describing: self)
+    }
+}
+
 enum TM155ScrollEvent: UInt8 {
     case wheelUp = 1
     case wheelDown = 2
@@ -239,8 +308,7 @@ enum TM155Button: Equatable {
     case systemControl(TM155SystemControl)
     
     // Type 03: Consumer Control 0-2FF
-    // TODO eventually make this into an enum as well?
-    case consumerControl(UInt16)
+    case consumerControl(TM155ConsumerControl)
     
     // Type 04: Single Scroll
     case scroll(TM155ScrollEvent)
@@ -317,8 +385,9 @@ enum TM155Button: Equatable {
             let control = TM155SystemControl.init(rawValue: c)
             return self.systemControl(control)
         case 3:
-            let control = UInt16(c) | (UInt16(d) << 8)
-            return self.consumerControl(control)
+            if let control = TM155ConsumerControl.init(rawValue: UInt16(c) | (UInt16(d) << 8)) {
+                return self.consumerControl(control)
+            }
         case 4:
             if let event = TM155ScrollEvent(rawValue: c) {
                 return self.scroll(event)
@@ -389,7 +458,7 @@ enum TM155Button: Equatable {
         case .systemControl(let control):
             return [2, 0, control.rawValue, 0]
         case .consumerControl(let control):
-            return [3, 0, UInt8(control & 0xFF), UInt8(control >> 8)]
+            return [3, 0, UInt8(control.rawValue & 0xFF), UInt8(control.rawValue >> 8)]
         case .scroll(let event):
             return [4, 0, event.rawValue, 0]
         case .reportRateUp:
@@ -462,7 +531,7 @@ enum TM155Button: Equatable {
         case .systemControl(let control):
             return control.description
         case .consumerControl(let control):
-            return "Consumer Control: \(control)"
+            return "Consumer Control: \(control.description)"
         case .scroll(let event):
             return "Single Scroll: \(event.description)"
         case .reportRateUp:

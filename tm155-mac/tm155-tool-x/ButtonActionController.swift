@@ -50,6 +50,62 @@ class ButtonActionController: NSViewController, NSOutlineViewDelegate, NSOutline
             ActionDefRef(.constant(.mouse(.wheelUp))),
             ActionDefRef(.constant(.mouse(.wheelDown))),
             ])),
+        ActionDefRef(.group("Controls", [
+            ActionDefRef(.constant(.systemControl(.powerDown))),
+            ActionDefRef(.constant(.systemControl(.sleep))),
+            ActionDefRef(.constant(.systemControl(.wakeUp))),
+            ActionDefRef(.constant(.consumerControl(.power))),
+            ActionDefRef(.constant(.consumerControl(.sleep))),
+            ActionDefRef(.constant(.consumerControl(.menu))),
+            ActionDefRef(.constant(.consumerControl(.brightnessUp))),
+            ActionDefRef(.constant(.consumerControl(.brightnessDown))),
+            ActionDefRef(.constant(.consumerControl(.brightnessMin))),
+            ActionDefRef(.constant(.consumerControl(.brightnessMax))),
+            ActionDefRef(.constant(.consumerControl(.brightnessAuto))),
+            ActionDefRef(.constant(.consumerControl(.channelUp))),
+            ActionDefRef(.constant(.consumerControl(.channelDown))),
+            ActionDefRef(.constant(.consumerControl(.mediaPlay))),
+            ActionDefRef(.constant(.consumerControl(.mediaPause))),
+            ActionDefRef(.constant(.consumerControl(.mediaRecord))),
+            ActionDefRef(.constant(.consumerControl(.mediaFastForward))),
+            ActionDefRef(.constant(.consumerControl(.mediaRewind))),
+            ActionDefRef(.constant(.consumerControl(.mediaNextTrack))),
+            ActionDefRef(.constant(.consumerControl(.mediaPreviousTrack))),
+            ActionDefRef(.constant(.consumerControl(.mediaStop))),
+            ActionDefRef(.constant(.consumerControl(.mediaEject))),
+            ActionDefRef(.constant(.consumerControl(.mediaPlayOrPause))),
+            ActionDefRef(.constant(.consumerControl(.mute))),
+            ActionDefRef(.constant(.consumerControl(.bassBoost))),
+            ActionDefRef(.constant(.consumerControl(.loudness))),
+            ActionDefRef(.constant(.consumerControl(.volumeUp))),
+            ActionDefRef(.constant(.consumerControl(.volumeDown))),
+            ActionDefRef(.constant(.consumerControl(.bassUp))),
+            ActionDefRef(.constant(.consumerControl(.bassDown))),
+            ActionDefRef(.constant(.consumerControl(.trebleUp))),
+            ActionDefRef(.constant(.consumerControl(.trebleDown))),
+            ActionDefRef(.constant(.consumerControl(.consumerControlCfg))),
+            ActionDefRef(.constant(.consumerControl(.emailReader))),
+            ActionDefRef(.constant(.consumerControl(.calculator))),
+            ActionDefRef(.constant(.consumerControl(.localBrowser))),
+            ActionDefRef(.constant(.consumerControl(.researchBrowser))),
+            ActionDefRef(.constant(.consumerControl(.search))),
+            ActionDefRef(.constant(.consumerControl(.home))),
+            ActionDefRef(.constant(.consumerControl(.back))),
+            ActionDefRef(.constant(.consumerControl(.forward))),
+            ActionDefRef(.constant(.consumerControl(.stop))),
+            ActionDefRef(.constant(.consumerControl(.refresh))),
+            ActionDefRef(.constant(.consumerControl(.bookmarks))),
+            ActionDefRef(.constant(.consumerControl(.unkD1))),
+            ActionDefRef(.constant(.consumerControl(.unkD2))),
+            ActionDefRef(.constant(.consumerControl(.unkD3))),
+            ActionDefRef(.constant(.consumerControl(.unkD4))),
+            ActionDefRef(.constant(.consumerControl(.unkD5))),
+            ActionDefRef(.constant(.consumerControl(.unkD6))),
+            ActionDefRef(.constant(.consumerControl(.unkD7))),
+            ActionDefRef(.constant(.consumerControl(.unk2C7))),
+            ActionDefRef(.constant(.consumerControl(.unk2C8))),
+            ActionDefRef(.constant(.consumerControl(.unk1C8))),
+            ])),
         ActionDefRef(.group("Parameters", [
             ActionDefRef(.constant(.reportRateUp)),
             ActionDefRef(.constant(.reportRateDown)),
@@ -69,17 +125,6 @@ class ButtonActionController: NSViewController, NSOutlineViewDelegate, NSOutline
             ActionDefRef(.overrideSensitivity),
             ])),
         ]
-    // TODO:
-    // System Control
-    // Consumer Control
-    // Notify App
-    // Macro
-    // Timed Repeat
-    // bt0A0,0A1
-    // Override DPI, Sensitivity
-    // Key and Tab
-    // Adjust DPI, Sensitivity
-    // Cycle Colour
 
     
     @IBOutlet weak var buttonTypeOutline: NSOutlineView!
